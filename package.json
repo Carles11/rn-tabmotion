@@ -1,0 +1,26 @@
+{
+  "name": "rn-tabmotion",
+  "version": "1.0.0",
+  "description": "A customizable and lightweight bottom tab bar component for React Native applications, designed for smooth animations and ease of use.",
+  "main": "index.js",
+  "scripts": {
+    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-carles:Carles11/rn-tabmotion.git"
+  },
+  "keywords": [
+    "[\"react-native\"",
+    "\"tab-bar\"",
+    "\"bottom-tab\"",
+    "\"animated-tab\"",
+    "\"custom-tab-bar\"",
+    "\"react-native-component\"",
+    "\"navigation\"",
+    "\"ui-component\"",
+    "\"rn-tabmotion\"]"
+  ],
+  "author": "Carles del Río Francés",
+  "license": "ISC"
+}
