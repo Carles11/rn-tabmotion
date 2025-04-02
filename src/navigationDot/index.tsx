@@ -7,12 +7,11 @@ import Animated, {
   withTiming
 } from 'react-native-reanimated'
 
-import { styles } from './styles'
+import styles from './styles'
 
-// Define the type for the props
 interface NavigationDotProps {
-  width: number // Width of each tab
-  activeTabIndex: number // Index of the currently active tab
+  width: number
+  activeTabIndex: number
 }
 
 export const NavigationDot: React.FC<NavigationDotProps> = ({ width, activeTabIndex }) => {
@@ -46,7 +45,6 @@ export const NavigationDot: React.FC<NavigationDotProps> = ({ width, activeTabIn
       withTiming(0, { duration: 300 }),
       withTiming(5, { duration: 300 })
     )
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTabIndex])
 
   return (

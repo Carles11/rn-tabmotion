@@ -2,14 +2,9 @@
   "name": "rn-tabmotion",
   "version": "1.0.0",
   "description": "A customizable and lightweight bottom tab bar component for React Native applications, designed for smooth animations and ease of use.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "react-native start",
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "example:start": "cd example && npm start",
-    "example:android": "cd example && npm run android",
-    "example:ios": "cd example && npm run ios",
     "build": "tsc",
     "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
