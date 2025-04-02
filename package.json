@@ -4,22 +4,30 @@
   "description": "A customizable and lightweight bottom tab bar component for React Native applications, designed for smooth animations and ease of use.",
   "main": "index.js",
   "scripts": {
-    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\""
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "example:start": "cd example && npm start",
+    "example:android": "cd example && npm run android",
+    "example:ios": "cd example && npm run ios",
+    "build": "tsc",
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com-carles:Carles11/rn-tabmotion.git"
   },
   "keywords": [
-    "[\"react-native\"",
-    "\"tab-bar\"",
-    "\"bottom-tab\"",
-    "\"animated-tab\"",
-    "\"custom-tab-bar\"",
-    "\"react-native-component\"",
-    "\"navigation\"",
-    "\"ui-component\"",
-    "\"rn-tabmotion\"]"
+    "react-native",
+    "tab-bar",
+    "bottom-tab",
+    "animated-tab",
+    "custom-tab-bar",
+    "react-native-component",
+    "navigation",
+    "ui-component",
+    "rn-tabmotion"
   ],
   "author": "Carles del Río Francés",
   "license": "ISC",
@@ -27,7 +35,10 @@
     "@types/react-native": "^0.72.8",
     "install": "^0.13.0",
     "npm": "^11.2.0",
-    "react-native": "^0.78.2"
+    "typescript": "^5.2.2",
+    "eslint": "^8.50.0",
+    "react-native": "^0.78.2",
+    "@react-native-community/cli": "latest"
   },
   "dependencies": {
     "react-native-reanimated": "^3.17.2"
