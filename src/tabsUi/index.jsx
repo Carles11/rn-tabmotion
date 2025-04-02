@@ -2,14 +2,26 @@ import { useEffect, useMemo, useState } from 'react'
 
 import { Dimensions, Keyboard, View } from 'react-native'
 
-import { THEME } from '@shared/config'
-
 import { NavigationDot } from '../navigationDot'
 import { TabsHandler } from '../tabsHandler'
 
 const { width: windowWidth } = Dimensions.get('window')
 
-export const CustomAnimatedTabBar = ({ state, tabs, openCreateModal }) => {
+export const CustomAnimatedTabBar = ({
+  state,
+  tabs,
+  openCreateModal,
+  tabBarHeight = 60,
+  tabBarBorderColor = '#F6F6F6',
+  tabBarShadowColor = '#696969',
+  tabBarBackgroundColor = '#fff',
+  tabBarElevation = 8,
+  tabBarShadowOpacity = 1,
+  tabBarShadowRadius = 24,
+  tabBarMarginTop = -12,
+  tabBarBorderTopWidth = 1,
+  alwaysShowTabBar = false // New prop to control visibility when the keyboard is open
+}) => {
   const tabWidth = useMemo(() => windowWidth / tabs.length, [tabs.length])
 
   const [keyboardStatus, setKeyboardStatus] = useState(false)
@@ -29,46 +41,32 @@ export const CustomAnimatedTabBar = ({ state, tabs, openCreateModal }) => {
     }
   }, [])
 
-  if (keyboardStatus) {
+  if (keyboardStatus && !alwaysShowTabBar) {
     return null
-  }
-
-  // fix for index issue because we have fixed screens num, but only 4 tabs
-  let indexFix = state.index
-
-  // when we open photos comments screen, we need to fix index on the "Home" tab
-  if (state.index <= 1) {
-    indexFix = 0
-  } else if (state.index === 2 || (state.index >= 4 && state.index <= 6)) {
-    indexFix = 1
-  } else if (state.index === 7) {
-    indexFix = 2
-  } else {
-    indexFix = -1
   }
 
   return (
     <View
       style={{
-        width: windowWidth,
-        height: THEME.style.bottomTabMenuHeight,
-        borderTopWidth: 1,
-        borderColor: THEME.colors.lightGray,
-        shadowColor: THEME.colors.darkGray,
-        elevation: 8,
-        shadowOpacity: 1, // Adjust opacity to control the visibility of the shadow
-        shadowRadius: 24, // Adjust radius for a more blurred effect,
-        backgroundColor: THEME.colors.white,
-        marginTop: -12
+        width: windowWidth, // Remains fixed
+        height: tabBarHeight,
+        borderTopWidth: tabBarBorderTopWidth, // Dynamic border top width
+        borderColor: tabBarBorderColor,
+        shadowColor: tabBarShadowColor,
+        elevation: tabBarElevation, // Dynamic elevation
+        shadowOpacity: tabBarShadowOpacity, // Dynamic shadow opacity
+        shadowRadius: tabBarShadowRadius, // Dynamic shadow radius
+        backgroundColor: tabBarBackgroundColor,
+        marginTop: tabBarMarginTop // Dynamic margin top
       }}
     >
       <View style={{ flexDirection: 'column' }}>
         <TabsHandler
           {...{ tabs, tabWidth, openCreateModal }}
-          activeTabIndex={indexFix}
+          activeTabIndex={state.index}
         />
 
-        <NavigationDot width={tabWidth} activeTabIndex={indexFix} />
+        <NavigationDot width={tabWidth} activeTabIndex={state.index} />
       </View>
     </View>
   )
