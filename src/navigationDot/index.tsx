@@ -1,5 +1,4 @@
-import { useEffect } from 'react'
-
+import React, { useEffect } from 'react'
 import Animated, {
   interpolate,
   useAnimatedStyle,
@@ -10,7 +9,13 @@ import Animated, {
 
 import { styles } from './styles'
 
-export const NavigationDot = ({ width, activeTabIndex }) => {
+// Define the type for the props
+interface NavigationDotProps {
+  width: number // Width of each tab
+  activeTabIndex: number // Index of the currently active tab
+}
+
+export const NavigationDot: React.FC<NavigationDotProps> = ({ width, activeTabIndex }) => {
   const startingPos = (width - 5) / 2
 
   const dotWidth = useSharedValue(5)
